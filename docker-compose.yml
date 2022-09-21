@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
+    ports:
+      - 3306:3306
+
+  oracle:
+    image: gvenzl/oracle-xe:21-slim
+    ports:
+      - 1521:1521
+      - 8080:8080
+      - 5500:5500
+    environment:
+      ORACLE_PASSWORD: example
